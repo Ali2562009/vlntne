@@ -12,7 +12,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at center, #fce1ff, #d0f0ff 70%);
+    background: radial-gradient(circle at center, #ffecf8, #d0f0ff 70%, #fff8d1 100%);
     font-family: 'Playfair Display', serif;
     color: #3b2a24;
     display: flex;
@@ -28,8 +28,9 @@ body::before {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, #ffe6a7 0%, transparent 70%);
+    background: radial-gradient(circle, #fff9a7 0%, transparent 70%);
     opacity: 0.25;
+    filter: blur(40px);
 }
 
 /* Floating hearts */
@@ -49,25 +50,17 @@ body::before {
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh) scale(0.8);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
 .container {
     text-align: center;
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.22);
     padding: 80px;
-    border-radius: 25px;
+    border-radius: 35px;
     max-width: 600px;
     animation: fadeIn 2s ease forwards;
 }
@@ -79,21 +72,30 @@ body::before {
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 45px;
-    color: #ff9a8b; /* soft coral */
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7);
+    font-size: 46px;
+    background: linear-gradient(45deg, #ff9a8b, #ffdfba, #a3d5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 8px rgba(255,255,255,0.5);
+    animation: rainbowText 6s infinite linear;
+}
+
+@keyframes rainbowText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .buttons {
     position: relative;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 button {
-    background: linear-gradient(135deg, #ffd1ff, #a3d5ff);
+    background: linear-gradient(135deg, #ffd1ff, #a3d5ff, #fff8d1);
     border: none;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 30px;
     font-size: 16px;
     color: #3b2a24;
@@ -101,12 +103,12 @@ button {
     transition: all 0.3s ease;
     margin: 10px;
     position: relative;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.18);
 }
 
 button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 210, 255, 0.4);
+    transform: translateY(-5px) rotate(-2deg);
+    box-shadow: 0 10px 35px rgba(255,210,255,0.35);
 }
 
 #noBtn {
@@ -120,10 +122,10 @@ button:hover {
 <div class="hearts" id="hearts"></div>
 
 <div class="container">
-    <h1>Will You Stay With Me? 🤍</h1>
+    <h1>Hey… wanna stick around? 🤍</h1>
     <div class="buttons">
-        <button onclick="yesClicked()">Yes 🤍</button>
-        <button id="noBtn">No</button>
+        <button onclick="yesClicked()">Sure, why not 🤍</button>
+        <button id="noBtn">Nah… maybe later</button>
     </div>
 </div>
 
@@ -158,7 +160,7 @@ noBtn.addEventListener("mouseover", () => {
 function yesClicked() {
     document.body.style.opacity = "0";
     setTimeout(() => {
-        alert("You just made my world softer 🤍");
+        alert("Yay! now the day feels lighter 🤍");
         document.body.style.opacity = "1";
     }, 800);
 }
