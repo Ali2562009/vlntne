@@ -12,9 +12,9 @@
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at top left, #3b2a24, #2a1f1a 70%);
+    background: radial-gradient(circle at top left, #cbe3ff, #e6d5ff 70%);
     font-family: 'Playfair Display', serif;
-    color: #f5eee6;
+    color: #3b2a24;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,10 +27,10 @@ body::before {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, #ffd9b3 0%, transparent 70%);
+    background: radial-gradient(circle, #ffe6a7 0%, transparent 70%);
     top: -200px;
     right: -200px;
-    opacity: 0.15;
+    opacity: 0.25;
 }
 
 /* Floating Particles */
@@ -39,9 +39,9 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: radial-gradient(#ffd9b3 1px, transparent 1px);
+    background-image: radial-gradient(#ffdfba 1px, transparent 1px);
     background-size: 40px 40px;
-    opacity: 0.05;
+    opacity: 0.1;
     animation: float 60s linear infinite;
 }
 
@@ -52,8 +52,8 @@ body::before {
 
 .container {
     text-align: center;
-    backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
     padding: 60px;
     border-radius: 25px;
     animation: fadeIn 2s ease forwards;
@@ -67,30 +67,32 @@ body::before {
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 50px;
-    color: #ffd9b3;
+    color: #ff9a8b; /* soft coral */
     margin-bottom: 10px;
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7);
 }
 
 p {
     font-size: 18px;
     margin-bottom: 30px;
+    color: #3b2a24;
 }
 
 button {
-    background: linear-gradient(135deg, #c89fa3, #ffd9b3);
+    background: linear-gradient(135deg, #ffd1ff, #a3d5ff); /* soft purple to sky blue */
     border: none;
     padding: 12px 30px;
     border-radius: 30px;
     font-size: 16px;
-    color: #2a1f1a;
+    color: #3b2a24;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 217, 179, 0.4);
+    box-shadow: 0 15px 40px rgba(255, 210, 255, 0.4);
 }
 
 </style>
@@ -106,14 +108,12 @@ button:hover {
 </div>
 
 <script>
-
 function nextPage() {
     document.body.style.opacity = "0";
     setTimeout(() => {
         window.location.href = "page2.html";
     }, 800);
 }
-
 </script>
 
 </body>
