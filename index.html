@@ -12,25 +12,27 @@
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at top left, #cbe3ff, #e6d5ff 70%);
+    background: radial-gradient(circle at top left, #cbe3ff, #f8d5ff 70%, #fff4c3 100%);
     font-family: 'Playfair Display', serif;
     color: #3b2a24;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: background 2s ease;
 }
 
-/* Ambient Light */
+/* Ambient Glow */
 body::before {
     content: "";
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, #ffe6a7 0%, transparent 70%);
-    top: -200px;
-    right: -200px;
-    opacity: 0.25;
+    background: radial-gradient(circle, #fff9a7 0%, transparent 70%);
+    top: -150px;
+    right: -150px;
+    opacity: 0.3;
+    filter: blur(60px);
 }
 
 /* Floating Particles */
@@ -39,60 +41,71 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: radial-gradient(#ffdfba 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.1;
-    animation: float 60s linear infinite;
+    background-image: radial-gradient(#ffd1c1 2px, transparent 2px);
+    background-size: 50px 50px;
+    opacity: 0.15;
+    animation: float 70s linear infinite;
 }
 
 @keyframes float {
     from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
+    to { transform: translateY(-1200px); }
 }
 
 .container {
     text-align: center;
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.2);
     padding: 60px;
-    border-radius: 25px;
+    border-radius: 35px;
     animation: fadeIn 2s ease forwards;
+    max-width: 700px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 50px;
-    color: #ff9a8b; /* soft coral */
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7);
+    font-size: 52px;
+    background: linear-gradient(45deg, #ff9a8b, #ffdfba, #a3d5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(255,255,255,0.6);
+    animation: rainbowText 5s infinite linear;
+}
+
+@keyframes rainbowText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 p {
-    font-size: 18px;
+    font-size: 19px;
+    line-height: 1.7;
     margin-bottom: 30px;
     color: #3b2a24;
 }
 
 button {
-    background: linear-gradient(135deg, #ffd1ff, #a3d5ff); /* soft purple to sky blue */
+    background: linear-gradient(135deg, #ffb7ce, #a3d5ff, #fff4c3);
     border: none;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 30px;
     font-size: 16px;
     color: #3b2a24;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
 }
 
 button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 210, 255, 0.4);
+    transform: translateY(-5px) rotate(-2deg);
+    box-shadow: 0 15px 50px rgba(255,255,255,0.5);
 }
 
 </style>
