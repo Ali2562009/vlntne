@@ -12,9 +12,9 @@
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at bottom right, #7e6a92, #5b4a7d 70%); /* happier, chill indie colours */
+    background: radial-gradient(circle at bottom right, #ff5ec9, #6effa6 40%, #5ec9ff 70%); /* crazy rainbow mix */
     font-family: 'Playfair Display', serif;
-    color: #f5eee6;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,10 +28,10 @@ body::before {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #ffd9b3 0%, transparent 70%);
+    background: radial-gradient(circle, #fff100 0%, transparent 70%);
     bottom: -150px;
     left: -150px;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
 /* Floating stars */
@@ -40,9 +40,9 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: radial-gradient(#ffd9b3 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.05;
+    background-image: radial-gradient(#fffd87 2px, transparent 2px);
+    background-size: 40px 40px;
+    opacity: 0.08;
     animation: float 80s linear infinite;
 }
 
@@ -53,10 +53,10 @@ body::before {
 
 .container {
     text-align: center;
-    backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.05);
     padding: 70px;
-    border-radius: 25px;
+    border-radius: 35px;
     max-width: 700px;
     animation: fadeIn 2s ease forwards;
 }
@@ -68,37 +68,47 @@ body::before {
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 45px;
-    color: #ffd9b3;
+    font-size: 48px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffea00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    animation: rainbowText 4s infinite linear;
+}
+
+@keyframes rainbowText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 p {
     font-size: 19px;
     line-height: 1.8;
     margin-bottom: 15px;
+    color: #fff;
 }
 
 button {
     margin-top: 30px;
-    background: linear-gradient(135deg, #c89fa3, #ffd9b3);
+    background: linear-gradient(135deg, #ff00ff, #00ffff, #ffea00);
     border: none;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 17px;
     color: #2a1f1a;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
 }
 
 button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 217, 179, 0.4);
+    transform: translateY(-5px) rotate(-2deg);
+    box-shadow: 0 15px 50px rgba(255,255,255,0.5);
 }
 
 .typewriter {
-    border-right: 2px solid #ffd9b3;
+    border-right: 2px solid #fff;
     white-space: pre-wrap;  /* allows line breaks */
     overflow: hidden;
     display: inline-block;
@@ -107,7 +117,7 @@ button:hover {
 
 @keyframes blink {
     0% { border-color: transparent; }
-    50% { border-color: #ffd9b3; }
+    50% { border-color: #fff; }
     100% { border-color: transparent; }
 }
 
