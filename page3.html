@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Moment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at center, #3b2a24, #2a1f1a 70%);
+    font-family: 'Playfair Display', serif;
+    color: #f5eee6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.8s ease;
+}
+
+/* Soft glow */
+body::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #ffd9b3 0%, transparent 70%);
+    opacity: 0.15;
+}
+
+/* Floating hearts */
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.container {
+    text-align: center;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.03);
+    padding: 80px;
+    border-radius: 25px;
+    max-width: 600px;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    color: #ffd9b3;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    position: relative;
+    margin-top: 30px;
+}
+
+button {
+    background: linear-gradient(135deg, #c89fa3, #ffd9b3);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #2a1f1a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    position: relative;
+}
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+#noBtn {
+    position: absolute;
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+    <h1>Will You Stay With Me? 🤍</h1>
+    <div class="buttons">
+        <button onclick="yesClicked()">Yes 🤍</button>
+        <button id="noBtn">No</button>
+    </div>
+</div>
+
+<script>
+
+/* Floating hearts generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 800);
+
+/* No button runs away */
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+/* Yes button */
+function yesClicked() {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        alert("You just made my world softer 🤍");
+        document.body.style.opacity = "1";
+    }, 800);
+}
+
+</script>
+
+</body>
+</html>
